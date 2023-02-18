@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Enemy
+  - Hydra
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: New Layer 1
+    uniqueID: 4066505435
+    locked: 0
+  - name: Background
+    uniqueID: 635808967
+    locked: 0
+  - name: Saw
+    uniqueID: 972536527
+    locked: 0
+  - name: Map
+    uniqueID: 3436080651
+    locked: 0
+  - name: EnvironmentObjects
+    uniqueID: 3806473717
+    locked: 0
+  - name: Collectibles
+    uniqueID: 1097659237
+    locked: 0
+  - name: Player
+    uniqueID: 643080397
+    locked: 0
