@@ -8,6 +8,7 @@ public class Fireball : MonoBehaviour
     private int direction;
     [SerializeField] GameObject explosionEffect;
     EnemyHealthController enemyHealthController;
+    BossHealthController bossHealthController;
     
     
     //PlayerMovement playerMovement;
@@ -16,6 +17,7 @@ public class Fireball : MonoBehaviour
     private void Awake() 
     {
         enemyHealthController = Object.FindObjectOfType<EnemyHealthController>();
+        bossHealthController = Object.FindObjectOfType<BossHealthController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
@@ -32,9 +34,10 @@ public class Fireball : MonoBehaviour
             enemyHealthController.EnemyTakeDamage();
             Instantiate(explosionEffect,transform.position,transform.rotation);
         }
-        if (other.tag == "Hydra")
+        if (other.tag == "Boss")
         {
             Destroy(gameObject);
+            bossHealthController.BossTakeDamage();
             Instantiate(explosionEffect,transform.position,transform.rotation);
         }
         

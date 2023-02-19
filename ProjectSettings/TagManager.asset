@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Enemy
   - Hydra
+  - Boss
   layers:
   - Default
   - TransparentFX

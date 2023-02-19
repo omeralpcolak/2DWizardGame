@@ -9,10 +9,12 @@ public class Lightball : MonoBehaviour
     public GameObject explosionEffect;
     public GameObject hitLocation;
     EnemyHealthController enemyHealthController;
+    BossHealthController bossHealthController;
 
     private void Awake() 
     {
         enemyHealthController = Object.FindObjectOfType<EnemyHealthController>();
+        bossHealthController = Object.FindObjectOfType<BossHealthController>();
     }
 
     private void Start() 
@@ -31,6 +33,12 @@ public class Lightball : MonoBehaviour
         if (other.tag == "Ground")
         {
             Destroy(gameObject);
+            Instantiate(explosionEffect, hitLocation.transform.position,hitLocation.transform.rotation);
+        }
+        if (other.tag == "Boss")
+        {
+            Destroy(gameObject);
+            bossHealthController.BossTakeDamage();
             Instantiate(explosionEffect, hitLocation.transform.position,hitLocation.transform.rotation);
         }
     }
