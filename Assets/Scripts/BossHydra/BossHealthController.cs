@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossHealthController : MonoBehaviour
 {
     public int bossCurrentHealth,bossMaxHealth;
-    //destructionEffect!
+    public GameObject destructionEffect;
     
 
     private void Awake() 
@@ -21,7 +21,7 @@ public class BossHealthController : MonoBehaviour
         {
             bossCurrentHealth=0;
             gameObject.SetActive(false);
-            //Instantiate destruction effect!!
+            Instantiate (destructionEffect,transform.position,transform.rotation);
         }
     }
 }

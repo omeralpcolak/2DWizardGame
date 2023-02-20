@@ -12,8 +12,9 @@ public class UIController : MonoBehaviour
     [SerializeField]Sprite fullHearth,halfHearth,emptyHearth;
     LevelManager levelManager;
     PlayerHealthController playerHealthController;
-    [SerializeField]TMP_Text dialogueTxt;
+    [SerializeField]TMP_Text dialogueTxt,victoryLossTxt;
     [SerializeField]GameObject dialogueBackground;
+    [SerializeField]GameObject fadeScreen;
 
     private void Awake() 
     {
@@ -75,6 +76,18 @@ public class UIController : MonoBehaviour
     {
         StartCoroutine(DialogueRoutine());
     }
+    public void FinalDialogue()
+    {
+        StartCoroutine(FinalTalk());
+    }
+    public void WinGame()
+    {
+        StartCoroutine(Win());
+    }
+    public void DefeatGame()
+    {
+        StartCoroutine(Defeat());
+    }
 
     IEnumerator DialogueRoutine()
     {
@@ -90,4 +103,43 @@ public class UIController : MonoBehaviour
         dialogueBackground.GetComponent<CanvasGroup>().DOFade(0,1f);
         
     }
+
+    IEnumerator FinalTalk()
+    {
+        yield return new WaitForSeconds(1.5f);
+        dialogueBackground.GetComponent<CanvasGroup>().DOFade(1,0f);
+        dialogueTxt.text = "Do you really believe that you can destroy me ?";
+        dialogueTxt.GetComponent<CanvasGroup>().DOFade(1,1f);
+        yield return new WaitForSeconds(2f);
+        dialogueTxt.text = "HAHAHAHAHAHAHAHAA, I WILL DESTROY YOUU !!!";
+        yield return new WaitForSeconds(1.5f);
+        dialogueTxt.GetComponent<CanvasGroup>().DOFade(0,1f);
+        yield return new WaitForSeconds(0.3f);
+        dialogueBackground.GetComponent<CanvasGroup>().DOFade(0,1f);
+    }
+
+    IEnumerator Win()
+    {
+        yield return new WaitForSeconds(1f);
+        victoryLossTxt.text = "VICTORY!!";
+        victoryLossTxt.GetComponent<CanvasGroup>().DOFade(1,1f);
+        yield return new WaitForSeconds(1f);
+        victoryLossTxt.GetComponent<CanvasGroup>().DOFade(0,1f);
+        yield return new WaitForSeconds(.1f);
+        fadeScreen.GetComponent<CanvasGroup>().DOFade(1,1f);
+        yield return new WaitForSeconds(1f);
+    }
+
+    IEnumerator Defeat()
+    {
+        yield return new WaitForSeconds(1f);
+        victoryLossTxt.text = "DEFEAT!!";
+        victoryLossTxt.GetComponent<CanvasGroup>().DOFade(1,1f);
+        yield return new WaitForSeconds(1f);
+        victoryLossTxt.GetComponent<CanvasGroup>().DOFade(0,1f);
+        yield return new WaitForSeconds(.1f);
+        fadeScreen.GetComponent<CanvasGroup>().DOFade(1,1f);
+        yield return new WaitForSeconds(1f);
+    }
+    
 }
